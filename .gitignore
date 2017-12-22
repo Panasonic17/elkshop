@@ -1,0 +1,7 @@
+data/
+dataJson/
+elasticJava/.idea/
+elasticsearch-6.0.0/
+elasticJava/filterAccounts.json
+elasticJava/target/classes/Entity/blogs/Tweet.class
+elasticJava/target/classes/
