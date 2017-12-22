@@ -1,4 +1,4 @@
-curl -XPUT 'localhost:9200/test?pretty' -H 'Content-Type: application/json' -d'
+curl -XPUT 'localhost:9200/products?pretty' -H 'Content-Type: application/json' -d'
 {
     "settings" : {
         "index" : {

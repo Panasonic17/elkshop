@@ -12,9 +12,15 @@ public class ElasticCRUD {
     public static IndexResponse put(String index, String type, String id, XContentBuilder xContentBuilder) {
         return client.prepareIndex(index, type, id).setSource(xContentBuilder).get();
     }
+
     public static IndexResponse put(String index, String type, Long id, XContentBuilder xContentBuilder) {
-        return client.prepareIndex(index, type, id+"").setSource(xContentBuilder).get();
+        return client.prepareIndex(index, type, id + "").setSource(xContentBuilder).get();
     }
+
+    public static IndexResponse put(String index, String type, Integer id, XContentBuilder xContentBuilder) {
+        return client.prepareIndex(index, type, id + "").setSource(xContentBuilder).get();
+    }
+
     public static IndexResponse put(String index, String type, XContentBuilder xContentBuilder) {
         return client.prepareIndex(index, type).setSource(xContentBuilder).get();
     }

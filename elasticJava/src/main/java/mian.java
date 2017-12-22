@@ -1,6 +1,3 @@
-import Entity.accounts.Account;
-import Entity.blogs.Tweet;
-import Transform.AccountTransformers;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
@@ -14,7 +11,6 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import utils.Client;
 import utils.ElasticCRUD;
-import utils.Populate.PopulateAccounts;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -37,12 +33,6 @@ public class mian {
 //        System.out.println(scrollResp);
         BulkRequest bk=new BulkRequest();
 //        Client.getInstance().bulk()
-        ArrayList<Account> accounts = AccountTransformers.getAccounts(scrollResp.toString());
-//        System.out.println(scrollResp);
-        for (Account a:accounts){
-            System.out.println(a);
-            System.out.println("+++++++++++++++++++++++++++++++++++++");
-        }
 
     }
 }
