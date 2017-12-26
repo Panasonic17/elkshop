@@ -1,12 +1,32 @@
 curl -XPUT 'localhost:9200/products/_mapping/product?pretty' -H 'Content-Type: application/json' -d'
 {
   "properties": {
-     "productId" : {
+      "class" : {
+            "type" : "text",
+            "fielddata": true,
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "productId" : {
             "type" : "long"
           },
           "shortDescription" : {
             "type" : "text",
-            "index" : "false",
+            "fielddata" : true,
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "manufacturer" : {
+            "type" : "text",
+             "fielddata" : true,
             "fields" : {
               "keyword" : {
                 "type" : "keyword",
@@ -16,7 +36,16 @@ curl -XPUT 'localhost:9200/products/_mapping/product?pretty' -H 'Content-Type: a
           },
           "sku" : {
             "type" : "long"
+          },
+          "subclass" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
           }
-        }
+}
   }
 '

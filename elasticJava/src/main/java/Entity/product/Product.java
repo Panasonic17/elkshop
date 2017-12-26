@@ -1,6 +1,7 @@
 package Entity.product;
 
 import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class Product {
     Boolean digital;
     Boolean preowned;
     Integer[] frequentlyPurchasedWith;
+    String manufacturer;
     Integer[] relatedProducts;
     Integer salesRankShortTerm;
     Integer salesRankMediumTerm;
@@ -64,14 +66,25 @@ public class Product {
     String department;
     Integer departmentId;
     Integer bestBuyItemId;
+    String longDescription;
 
     public void populateObject(JSONObject jsonObject) {
         sku = jsonObject.getInt("sku");
         productId = jsonObject.getInt("productId");
         shortDescription = jsonObject.getString("shortDescription");
-        productClass=jsonObject.getString("class");
-        subclass=jsonObject.getString("subclass");
+        productClass = jsonObject.getString("class");
+        subclass = jsonObject.getString("subclass");
+        try {
+            longDescription = jsonObject.getString("longDescription");
+        } catch (JSONException ex) {
+        } finally {
+            try {
+                manufacturer = jsonObject.getString("manufacturer");
+            } catch (JSONException ex) {
+            }
+        }
     }
+
 
     public XContentBuilder getXContent() {
         XContentBuilder content = null;
@@ -82,7 +95,9 @@ public class Product {
                     .field("productId", productId)
                     .field("shortDescription", shortDescription)
                     .field("class", productClass)
-                    .field("subclass",subclass)
+                    .field("subclass", subclass)
+                    .field("manufacturer", manufacturer)
+                    .field("longDescription", longDescription)
                     .endObject();
         } catch (IOException e) {
             e.printStackTrace();

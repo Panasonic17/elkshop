@@ -1,12 +1,13 @@
 curl -XGET 'localhost:9200/products/product/_search?pretty' -H 'Content-Type: application/json' -d'
-{
-    "size" : 0,
+{"size": 1,
     "aggs" : {
-        "distinctTypes" : {
-            "cardinality" : {
-              "field" : "class"
-            }
+        
+        "genres" : {
+        
+            "terms" : { "field" : "class" },
+           
         }
+        
     }
 }
 '
