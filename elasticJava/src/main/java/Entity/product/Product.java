@@ -5,6 +5,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
@@ -69,18 +71,33 @@ public class Product {
     String longDescription;
 
     public void populateObject(JSONObject jsonObject) {
+//        System.out.println(jsonObject.toString());
         sku = jsonObject.getInt("sku");
         productId = jsonObject.getInt("productId");
         shortDescription = jsonObject.getString("shortDescription");
         productClass = jsonObject.getString("class");
         subclass = jsonObject.getString("subclass");
+        startDate = dateCreator(jsonObject.getString("startDate"));
+        regularPrice = jsonObject.getDouble("regularPrice");
         try {
-            longDescription = jsonObject.getString("longDescription");
-        } catch (JSONException ex) {
+            String revAvg = "" + jsonObject.get("customerReviewAverage");
+            if (!revAvg.equals(""))
+                customerReviewAverage = jsonObject.getDouble("customerReviewAverage");
         } finally {
             try {
-                manufacturer = jsonObject.getString("manufacturer");
-            } catch (JSONException ex) {
+                String revCount = "" + jsonObject.get("customerReviewCount");
+                if (!revCount.equals(""))
+                    customerReviewCount = jsonObject.getInt("customerReviewCount");
+            } finally {
+                try {
+                    longDescription = jsonObject.getString("longDescription");
+                } catch (JSONException ex) {
+                } finally {
+                    try {
+                        manufacturer = jsonObject.getString("manufacturer");
+                    } catch (JSONException ex) {
+                    }
+                }
             }
         }
     }
@@ -98,6 +115,10 @@ public class Product {
                     .field("subclass", subclass)
                     .field("manufacturer", manufacturer)
                     .field("longDescription", longDescription)
+                    .field("customerReviewCount", customerReviewCount)
+                    .field("customerReviewAverage", customerReviewAverage)
+                    .field("regularPrice", regularPrice)
+                    .field("startDate",startDate)
                     .endObject();
         } catch (IOException e) {
             e.printStackTrace();
@@ -111,6 +132,17 @@ public class Product {
                 "sku=" + sku +
                 ", productId=" + productId +
                 '}';
+    }
+
+    private Date dateCreator(String date) {
+//        2001-04-30
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd");
+        try {
+            return sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public Integer getProductId() {
