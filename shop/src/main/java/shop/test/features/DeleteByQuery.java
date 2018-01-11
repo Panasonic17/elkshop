@@ -3,7 +3,7 @@ package shop.test.features;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.reindex.BulkByScrollResponse;
 import org.elasticsearch.index.reindex.DeleteByQueryAction;
-import utils.Client;
+import shop.test.features.utils.Client;
 
 
 public class DeleteByQuery {

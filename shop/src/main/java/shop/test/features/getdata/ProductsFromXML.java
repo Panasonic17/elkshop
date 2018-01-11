@@ -1,17 +1,15 @@
 package shop.test.features.getdata;
 
-import Entity.product.Product;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.XML;
+
+
+import org.json.*;
+import shop.entity.product.Product;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
 
 public class ProductsFromXML {
 

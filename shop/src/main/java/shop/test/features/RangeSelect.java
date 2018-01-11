@@ -3,7 +3,7 @@ package shop.test.features;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.range.InternalRange;
-import utils.Client;
+import shop.test.features.utils.Client;
 
 /**
  * Created by Oleksandr_Shainoga on 12/27/2017.

@@ -1,9 +1,10 @@
 package shop.test.features;
 
+
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
-import utils.Client;
+import shop.test.features.utils.Client;
 
 import java.util.Map;
 

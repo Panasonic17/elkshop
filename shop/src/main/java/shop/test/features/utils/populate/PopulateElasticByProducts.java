@@ -1,9 +1,10 @@
 package shop.test.features.utils.populate;
 
-import Entity.product.Product;
-import getdata.ProductsFromXML;
+
 import org.elasticsearch.action.index.IndexResponse;
-import utils.ElasticCRUD;
+import shop.entity.product.Product;
+import shop.test.features.getdata.ProductsFromXML;
+import shop.test.features.utils.ElasticCRUD;
 
 import java.util.ArrayList;
 

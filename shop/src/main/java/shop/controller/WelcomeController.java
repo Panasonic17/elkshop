@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class WelcomeController {
 
-	@RequestMapping("/w")
+	@RequestMapping("/")
 	public String welcome(ModelMap map) {
 		map.put("currentDate", new Date());
 		return "welcome";

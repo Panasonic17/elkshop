@@ -6,8 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Demo | Welcome</title>
 	</head>
-	
 	<body>
-		SAWA1asdas ae f
+	<a href="/tenProducts">ten products</a>
 	</body>
 </html>
