@@ -1,4 +1,4 @@
-package previousProject.java.utils.populate;
+package shop.test.features.utils.populate;
 
 import Entity.product.Product;
 import getdata.ProductsFromXML;

@@ -1,4 +1,4 @@
-package previousProject.java.utils;
+package shop.test.features.utils;
 
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;

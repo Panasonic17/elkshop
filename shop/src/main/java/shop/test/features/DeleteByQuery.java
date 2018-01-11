@@ -1,4 +1,4 @@
-package previousProject.java.features;
+package shop.test.features;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.reindex.BulkByScrollResponse;

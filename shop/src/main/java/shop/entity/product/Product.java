@@ -1,4 +1,4 @@
-package previousProject.java.Entity.product;
+package shop.entity.product;
 
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.json.JSONException;

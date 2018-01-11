@@ -1,4 +1,4 @@
-package previousProject.java.features;
+package shop.test.features;
 
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilders;

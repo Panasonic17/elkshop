@@ -1,4 +1,4 @@
-package previousProject.java;
+package shop.test.features;
 
 import utils.populate.PopulateElasticByProducts;
 

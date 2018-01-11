@@ -1,4 +1,4 @@
-package previousProject.java.utils;
+package shop.test.features.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

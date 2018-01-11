@@ -1,9 +1,10 @@
-package previousProject.java;
+package shop.test.features;
 
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilders;
-import utils.Client;
+import shop.test.features.utils.Client;
+
 
 import java.io.IOException;
 

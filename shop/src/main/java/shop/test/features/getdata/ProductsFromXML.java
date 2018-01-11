@@ -1,4 +1,4 @@
-package previousProject.java.getdata;
+package shop.test.features.getdata;
 
 import Entity.product.Product;
 import org.json.JSONArray;
