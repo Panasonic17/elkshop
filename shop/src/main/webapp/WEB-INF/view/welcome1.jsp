@@ -6,7 +6,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Demo | Welcome</title>
 	</head>
-	
 	<body>
 		Welcome coder !  asdasd asd asd as da Current Date is ${currentDate }
 	</body>
