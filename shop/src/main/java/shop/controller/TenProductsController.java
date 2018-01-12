@@ -1,26 +1,28 @@
 package shop.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import shop.entity.product.Product;
+import shop.services.get.GetTenProducts;
+import shop.test.features.RangeSelect;
 import shop.test.features.getAllBattareis;
 
 @Controller
 public class TenProductsController {
+    @Autowired
+    GetTenProducts getTenProducts;
+
     @RequestMapping("/tenProducts")
+
     public String welcome(ModelMap map) {
-        getAllBattareis.doSnth(); //b= new getAllBattareis();
+//        RangeSelect.main(null);
 
         System.out.println("heresdw");
-        Product p[] = new Product[10];
-        Product product = new Product();
-        product.productId = 333;
-        product.sku = 444;
-        for (int i = 0; i <10 ; i++) {
-            p[i]=product;
-        }
+        Product p[] = getTenProducts.getTenProducts();
+
 //        p[0] = product;
 //        p[3] = product;
 
