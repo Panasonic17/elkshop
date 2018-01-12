@@ -10,6 +10,7 @@
 	<title>Demo | Welcome</title>
 	</head>
 	<body>
+	<a href="/">HOME</a>
        <table border="3" width="100%" cellpadding="5">
 		  <c:forEach items="${products}" var="product">
            <table>

@@ -7,6 +7,6 @@
 	<title>Demo | Welcome</title>
 	</head>
 	<body>
-	<a href="/tenProducts">ten products</a>
+	<a href="/products">ten products</a>
 	</body>
 </html>
