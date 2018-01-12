@@ -11,7 +11,7 @@
 	</head>
 	<body>
 	<a href="/">HOME</a>
-	"${name}"
+	<a href="/show?from=${next}">"${next}"</a>
        <table border="3" width="100%" cellpadding="5">
 		  <c:forEach items="${products}" var="product">
            <table>
@@ -38,5 +38,6 @@
            </table>
           </c:forEach>
          </table>
+         <a href="/">previous</a> <a href="/">next</a>
 	</body>
 </html>

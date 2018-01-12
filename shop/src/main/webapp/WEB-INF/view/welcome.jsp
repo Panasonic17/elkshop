@@ -7,6 +7,9 @@
 	<title>Demo | Welcome</title>
 	</head>
 	<body>
+	hi "${name}"
+	${products} asd
 	<a href="/products">ten products</a>
+	<a href="/show">ten products</a>
 	</body>
 </html>
