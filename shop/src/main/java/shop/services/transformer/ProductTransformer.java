@@ -37,12 +37,12 @@ public class ProductTransformer {
         product.regularPrice = jsonObject.getDouble("regularPrice");
         try {
             String revAvg = "" + jsonObject.get("customerReviewAverage");
-            if (!revAvg.equals(""))
+            if (!(revAvg.equals("")||(revAvg==null)||revAvg.equals("null")))
                 product.customerReviewAverage = jsonObject.getDouble("customerReviewAverage");
         } finally {
             try {
                 String revCount = "" + jsonObject.get("customerReviewCount");
-                if (!revCount.equals(""))
+                if (!(revCount.equals("")||(revCount==null)||revCount.equals("null")))
                     product.customerReviewCount = jsonObject.getInt("customerReviewCount");
             } finally {
                 try {

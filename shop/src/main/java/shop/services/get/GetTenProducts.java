@@ -21,7 +21,7 @@ public class GetTenProducts {
         Product[] products = new Product[10];
         SearchResponse response = client.prepareSearch("products")
                 .setTypes("product")
-                .setQuery(QueryBuilders.boolQuery().should(matchQuery("shortDescription", "AA")))
+                .setQuery(QueryBuilders.matchAllQuery())
                 .get();
         int i = 0;
         for (SearchHit hit : response.getHits().getHits()) {
