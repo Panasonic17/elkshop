@@ -60,7 +60,6 @@ public class ProductTransformer {
     }
 
     private Date dateCreator(String date) {
-//        2001-04-30
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd");
         try {
             return sdf.parse(date);
