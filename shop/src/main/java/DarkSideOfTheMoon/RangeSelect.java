@@ -1,9 +1,9 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.range.InternalRange;
-import shop.test.features.utils.Client;
+import DarkSideOfTheMoon.utils.Client;
 
 /**
  * Created by Oleksandr_Shainoga on 12/27/2017.

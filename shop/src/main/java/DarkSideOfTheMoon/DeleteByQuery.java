@@ -1,9 +1,9 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.reindex.BulkByScrollResponse;
 import org.elasticsearch.index.reindex.DeleteByQueryAction;
-import shop.test.features.utils.Client;
+import DarkSideOfTheMoon.utils.Client;
 
 
 public class DeleteByQuery {

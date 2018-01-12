@@ -1,10 +1,11 @@
-package shop.test.features.utils.populate;
+package DarkSideOfTheMoon.utils.populate;
 
 
+import DarkSideOfTheMoon.getdata.ProductsFromXML;
 import org.elasticsearch.action.index.IndexResponse;
 import shop.entity.product.Product;
-import shop.test.features.getdata.ProductsFromXML;
-import shop.test.features.utils.ElasticCRUD;
+import DarkSideOfTheMoon.utils.ElasticCRUD;
+import shop.services.transformer.ProductTransformer;
 
 import java.util.ArrayList;
 
@@ -16,10 +17,11 @@ public class PopulateElasticByProducts {
         System.out.println("qq1");
         System.out.println(products.size());
         System.out.println("start populate");
-        int i=0;
+        int i = 0;
+        ProductTransformer pt = new ProductTransformer();
         for (Product product : products) {
 //            System.out.println(i++);
-          IndexResponse resp= ElasticCRUD.put("products", "product", product.getProductId(), product.getXContent());
+            IndexResponse resp = ElasticCRUD.put("products", "product", product.getProductId(), pt.getXContent(product));
 //            System.out.println(resp);
 
         }

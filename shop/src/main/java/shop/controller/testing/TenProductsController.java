@@ -1,4 +1,4 @@
-package shop.controller;
+package shop.controller.testing;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import shop.entity.product.Product;
 import shop.services.get.GetTenProducts;
-import shop.test.features.RangeSelect;
-import shop.test.features.getAllBattareis;
 
 @Controller
 public class TenProductsController {

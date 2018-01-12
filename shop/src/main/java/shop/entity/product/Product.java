@@ -13,118 +13,62 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
 
 public class Product {
-   public Integer sku;
-   public Integer productId;
-    String name;
-    String source;
-    String type;
-    Date startDate;
-    Boolean IsNew;
-    Boolean active;
-    Boolean lowPriceGuarantee;
-    String activeUpdateDate;
-    Double regularPrice;
-    Double salePrice;
-    Boolean onSale;
-    Date priceUpdateDate;
-    Boolean digital;
-    Boolean preowned;
-    Integer[] frequentlyPurchasedWith;
-    String manufacturer;
-    Integer[] relatedProducts;
-    Integer salesRankShortTerm;
-    Integer salesRankMediumTerm;
-    Integer salesRankLongTerm;
-    Integer bestSellingRank;
-    String url;
-    String mobileUrl;
-    String addToCartUrl;
-    String upc;
-    String productTemplate;
-    Category[] categoryPath; // ???????????????????????????? mabye misstake
-    Integer customerReviewCount;
-    Double customerReviewAverage;
-    Boolean customerTopRated;
-    Boolean freeShipping;
-    Boolean freeShippingEligible;
-    Boolean inStoreAvailability;
-    String inStoreAvailabilityText;
-    String inStoreAvailabilityTextHtml;
-    Date inStoreAvailabilityUpdateDate;
-    Date itemUpdateDate;
-    Boolean onlineAvailability;
-    String onlineAvailabilityText;
-    String onlineAvailabilityTextHtml;
-    Date onlineAvailabilityUpdateDate;
-    Double shippingCost;
-    Shipping shipping;
-    Boolean specialOrder;
-    String shortDescription;
-    String shortDescriptionHtml;
-    String productClass; //class
-    Integer classId;
-    String subclass;
-    Integer subclassId;
-    String department;
-    Integer departmentId;
-    Integer bestBuyItemId;
-    String longDescription;
-
-    public void populateObject(JSONObject jsonObject) {
-//        System.out.println(jsonObject.toString());
-        sku = jsonObject.getInt("sku");
-        productId = jsonObject.getInt("productId");
-        shortDescription = jsonObject.getString("shortDescription");
-        productClass = jsonObject.getString("class");
-        subclass = jsonObject.getString("subclass");
-        startDate = dateCreator(jsonObject.getString("startDate"));
-        regularPrice = jsonObject.getDouble("regularPrice");
-        try {
-            String revAvg = "" + jsonObject.get("customerReviewAverage");
-            if (!revAvg.equals(""))
-                customerReviewAverage = jsonObject.getDouble("customerReviewAverage");
-        } finally {
-            try {
-                String revCount = "" + jsonObject.get("customerReviewCount");
-                if (!revCount.equals(""))
-                    customerReviewCount = jsonObject.getInt("customerReviewCount");
-            } finally {
-                try {
-                    longDescription = jsonObject.getString("longDescription");
-                } catch (JSONException ex) {
-                } finally {
-                    try {
-                        manufacturer = jsonObject.getString("manufacturer");
-                    } catch (JSONException ex) {
-                    }
-                }
-            }
-        }
-    }
-
-
-    public XContentBuilder getXContent() {
-        XContentBuilder content = null;
-        try {
-            content = jsonBuilder()
-                    .startObject()
-                    .field("sku", sku)
-                    .field("productId", productId)
-                    .field("shortDescription", shortDescription)
-                    .field("class", productClass)
-                    .field("subclass", subclass)
-                    .field("manufacturer", manufacturer)
-                    .field("longDescription", longDescription)
-                    .field("customerReviewCount", customerReviewCount)
-                    .field("customerReviewAverage", customerReviewAverage)
-                    .field("regularPrice", regularPrice)
-                    .field("startDate",startDate)
-                    .endObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return content;
-    }
+    public Integer sku;
+    public Integer productId;
+    public String name;
+    public String source;
+    public String type;
+    public Date startDate;
+    public Boolean IsNew;
+    public Boolean active;
+    public Boolean lowPriceGuarantee;
+    public String activeUpdateDate;
+    public Double regularPrice;
+    public Double salePrice;
+    public Boolean onSale;
+    public Date priceUpdateDate;
+    public Boolean digital;
+    public Boolean preowned;
+    public Integer[] frequentlyPurchasedWith;
+    public String manufacturer;
+    public Integer[] relatedProducts;
+    public Integer salesRankShortTerm;
+    public Integer salesRankMediumTerm;
+    public Integer salesRankLongTerm;
+    public Integer bestSellingRank;
+    public String url;
+    public String mobileUrl;
+    public String addToCartUrl;
+    public String upc;
+    public String productTemplate;
+    public Category[] categoryPath; // ???????????????????????????? mabye misstake
+    public Integer customerReviewCount;
+    public Double customerReviewAverage;
+    public Boolean customerTopRated;
+    public Boolean freeShipping;
+    public Boolean freeShippingEligible;
+    public Boolean inStoreAvailability;
+    public String inStoreAvailabilityText;
+    public String inStoreAvailabilityTextHtml;
+    public Date inStoreAvailabilityUpdateDate;
+    public Date itemUpdateDate;
+    public Boolean onlineAvailability;
+    public String onlineAvailabilityText;
+    public String onlineAvailabilityTextHtml;
+    public Date onlineAvailabilityUpdateDate;
+    public Double shippingCost;
+    public Shipping shipping;
+    public Boolean specialOrder;
+    public String shortDescription;
+    public String shortDescriptionHtml;
+    public String productClass; //class
+    public Integer classId;
+    public String subclass;
+    public Integer subclassId;
+    public String department;
+    public Integer departmentId;
+    public Integer bestBuyItemId;
+    public String longDescription;
 
     @Override
     public String toString() {
@@ -132,17 +76,6 @@ public class Product {
                 "sku=" + sku +
                 ", productId=" + productId +
                 '}';
-    }
-
-    private Date dateCreator(String date) {
-//        2001-04-30
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd");
-        try {
-            return sdf.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     public Integer getProductId() {

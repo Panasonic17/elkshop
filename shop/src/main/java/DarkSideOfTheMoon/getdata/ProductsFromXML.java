@@ -1,9 +1,9 @@
-package shop.test.features.getdata;
-
+package DarkSideOfTheMoon.getdata;
 
 
 import org.json.*;
 import shop.entity.product.Product;
+import shop.services.transformer.ProductTransformer;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,8 +23,9 @@ public class ProductsFromXML {
             JSONObject productArray = xmlJSONObj.getJSONObject("products");
             JSONArray array = productArray.getJSONArray("product");
             for (int i = 0; i < array.length(); i++) {
-                Product p = new Product();
-                p.populateObject((JSONObject) array.get(i));
+
+                ProductTransformer tp = new ProductTransformer();
+                Product p = tp.jsonObjToProduct((JSONObject) array.get(i));
                 products.add(p);
             }
         }
@@ -55,7 +56,11 @@ public class ProductsFromXML {
             JSONObject products = xmlJSONObj.getJSONObject("products");
             JSONArray array = products.getJSONArray("product");
             for (int i = 0; i < 1; i++) {
-                p.populateObject((JSONObject) array.get(i));
+
+
+                ProductTransformer tp = new ProductTransformer();
+                p = tp.jsonObjToProduct((JSONObject) array.get(i));
+
             }
 
         } catch (JSONException je) {

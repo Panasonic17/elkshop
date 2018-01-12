@@ -1,9 +1,9 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilders;
-import shop.test.features.utils.Client;
+import DarkSideOfTheMoon.utils.Client;
 
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class mian {
 //        Tweet t1 = new Tweet("sawa", null, "Sawa testing");
 //        XContentBuilder xContentBuilder = t1.getXContent();
 //        IndexResponse response = ElasticCRUD.put("blogs", "tweet", xContentBuilder);
-//        GetResponse response =ElasticCRUD.get("blogs","tweet","1"); //Client.getInstance().prepareGet("blogs", "tweet", "6").get();
+//        GetResponse response =ElasticCRUD.get("blogs","tweet","1"); //ElkClient.getInstance().prepareGet("blogs", "tweet", "6").get();
 //        System.out.println(Tweet.getTweetFromJson(response.toString()));
 //        System.out.println(response);
 //        PopulateAccounts.populateAccounts();
@@ -21,7 +21,7 @@ public class mian {
         SearchResponse scrollResp = Client.getInstance().prepareSearch("accounts").setTypes("account").setQuery(QueryBuilders.matchQuery("gender","F")).setSize(4).get();
 //        System.out.println(scrollResp);
         BulkRequest bk=new BulkRequest();
-//        Client.getInstance().bulk()
+//        ElkClient.getInstance().bulk()
 
     }
 }

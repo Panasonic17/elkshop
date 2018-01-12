@@ -1,11 +1,11 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
-import shop.test.features.utils.Client;
+import DarkSideOfTheMoon.utils.Client;
 
 import java.util.Map;
 

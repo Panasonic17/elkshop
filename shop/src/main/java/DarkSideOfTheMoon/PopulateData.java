@@ -1,7 +1,7 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 
-import shop.test.features.utils.populate.PopulateElasticByProducts;
+import DarkSideOfTheMoon.utils.populate.PopulateElasticByProducts;
 
 public class PopulateData {
    public static void main(String[] args) {

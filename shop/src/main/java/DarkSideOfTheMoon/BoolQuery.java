@@ -1,4 +1,4 @@
-package shop.test.features;
+package DarkSideOfTheMoon;
 
 
 import org.elasticsearch.action.search.SearchResponse;
@@ -7,9 +7,7 @@ import org.elasticsearch.search.SearchHit;
 import org.json.JSONObject;
 import shop.entity.product.Product;
 import shop.services.transformer.ProductTransformer;
-import shop.test.features.utils.Client;
-
-import java.util.Map;
+import DarkSideOfTheMoon.utils.Client;
 
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
@@ -24,8 +22,8 @@ public class BoolQuery {
         for (SearchHit hit : response.getHits().getHits()) {
 
             JSONObject jsonObject=new JSONObject(hit.getSourceAsString());
-            Product p=new Product();
-            p.populateObject(jsonObject);
+            ProductTransformer tp = new ProductTransformer();
+            Product p = tp.jsonObjToProduct(jsonObject);
             System.out.println("PRODUCT "+ p);
 //            Map<String, Object> map = hit.getSourceAsMap();
 //            transformer.hitnToProduct(hit);

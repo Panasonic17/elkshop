@@ -1,4 +1,4 @@
-package shop.test.features.utils;
+package DarkSideOfTheMoon.utils;
 
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;

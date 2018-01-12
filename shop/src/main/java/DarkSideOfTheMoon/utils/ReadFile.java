@@ -1,4 +1,4 @@
-package shop.test.features.utils;
+package DarkSideOfTheMoon.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
