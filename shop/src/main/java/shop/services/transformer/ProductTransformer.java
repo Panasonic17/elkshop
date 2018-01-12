@@ -35,14 +35,18 @@ public class ProductTransformer {
         product.subclass = jsonObject.getString("subclass");
         product.startDate = dateCreator(jsonObject.getString("startDate"));
         product.regularPrice = jsonObject.getDouble("regularPrice");
+
+        product.image = jsonObject.getString("image");
+        product.name = jsonObject.getString("name");
+//        product
         try {
             String revAvg = "" + jsonObject.get("customerReviewAverage");
-            if (!(revAvg.equals("")||(revAvg==null)||revAvg.equals("null")))
+            if (!(revAvg.equals("") || (revAvg == null) || revAvg.equals("null")))
                 product.customerReviewAverage = jsonObject.getDouble("customerReviewAverage");
         } finally {
             try {
                 String revCount = "" + jsonObject.get("customerReviewCount");
-                if (!(revCount.equals("")||(revCount==null)||revCount.equals("null")))
+                if (!(revCount.equals("") || (revCount == null) || revCount.equals("null")))
                     product.customerReviewCount = jsonObject.getInt("customerReviewCount");
             } finally {
                 try {
@@ -85,6 +89,8 @@ public class ProductTransformer {
                     .field("customerReviewAverage", product.customerReviewAverage)
                     .field("regularPrice", product.regularPrice)
                     .field("startDate", product.startDate)
+                    .field("image",product.image)
+                    .field("name",product.name)
                     .endObject();
         } catch (IOException e) {
             e.printStackTrace();

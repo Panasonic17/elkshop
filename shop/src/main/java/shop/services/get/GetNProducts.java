@@ -13,15 +13,16 @@ import shop.services.transformer.ProductTransformer;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
 @Service
-public class GetTenProducts {
+public class GetNProducts {
     @Autowired
     TransportClient client;
 
-    public Product[] getTenProducts() {
-        Product[] products = new Product[10];
+    public Product[] getProducts(int count) {
+        Product[] products = new Product[count];
         SearchResponse response = client.prepareSearch("products")
                 .setTypes("product")
                 .setQuery(QueryBuilders.matchAllQuery())
+                .setSize(count)
                 .get();
         int i = 0;
         for (SearchHit hit : response.getHits().getHits()) {

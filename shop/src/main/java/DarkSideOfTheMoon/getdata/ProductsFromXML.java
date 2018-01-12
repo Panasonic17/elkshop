@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ProductsFromXML {
 
     public ArrayList<Product> GetProducts() {
-        File folder = new File("../testData");
+        File folder = new File("testData");
         File[] files = folder.listFiles();
         ArrayList<Product> products = new ArrayList<>();
         for (File f : files) {
