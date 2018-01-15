@@ -30,14 +30,14 @@ public class ProductTransformer {
         Product product = new Product();
         product.sku = jsonObject.getInt("sku");
         product.productId = jsonObject.getInt("productId");
-        product.shortDescription = jsonObject.getString("shortDescription");
-        product.productClass = jsonObject.getString("class");
-        product.subclass = jsonObject.getString("subclass");
-        product.startDate = dateCreator(jsonObject.getString("startDate"));
+        product.shortDescription = jsonObject.optString("shortDescription");
+        product.productClass = jsonObject.optString("class");
+        product.subclass = jsonObject.optString("subclass");
+        product.startDate = dateCreator(jsonObject.optString("startDate"));
         product.regularPrice = jsonObject.getDouble("regularPrice");
 
-        product.image = jsonObject.getString("image");
-        product.name = jsonObject.getString("name");
+        product.image = jsonObject.optString("image");
+        product.name = jsonObject.optString("name");
 //        product
         try {
             String revAvg = "" + jsonObject.get("customerReviewAverage");
@@ -54,7 +54,7 @@ public class ProductTransformer {
                 } catch (JSONException ex) {
                 } finally {
                     try {
-                        product.manufacturer = jsonObject.getString("manufacturer");
+                        product.manufacturer  = jsonObject.getString("manufacturer");
                     } catch (JSONException ex) {
                     }
                 }
@@ -68,7 +68,7 @@ public class ProductTransformer {
         try {
             return sdf.parse(date);
         } catch (ParseException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return null;
     }

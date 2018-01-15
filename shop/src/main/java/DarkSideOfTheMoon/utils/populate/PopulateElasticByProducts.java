@@ -13,7 +13,7 @@ public class PopulateElasticByProducts {
     public static void populate() {
         ProductsFromXML p = new ProductsFromXML();
         System.out.println("qq");
-        ArrayList<Product> products = p.GetProducts();
+        ArrayList<Product> products = p.GetProductAndSend();
         System.out.println("qq1");
         System.out.println(products.size());
         System.out.println("start populate");

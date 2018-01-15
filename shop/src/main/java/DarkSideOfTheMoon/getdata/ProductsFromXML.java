@@ -1,6 +1,7 @@
 package DarkSideOfTheMoon.getdata;
 
 
+import DarkSideOfTheMoon.utils.ElasticCRUD;
 import org.json.*;
 import shop.entity.product.Product;
 import shop.services.transformer.ProductTransformer;
@@ -12,9 +13,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProductsFromXML {
-
-    public ArrayList<Product> GetProducts() {
-        File folder = new File("testData");
+    static ProductTransformer pt = new ProductTransformer();
+    public ArrayList<Product> GetProductAndSend() {
+//        File folder = new File("testData");
+        File folder = new File("../data");
         File[] files = folder.listFiles();
         ArrayList<Product> products = new ArrayList<>();
         for (File f : files) {
@@ -26,7 +28,8 @@ public class ProductsFromXML {
 
                 ProductTransformer tp = new ProductTransformer();
                 Product p = tp.jsonObjToProduct((JSONObject) array.get(i));
-                products.add(p);
+//                products.add(p);
+                ElasticCRUD.put("products", "product", p.getProductId(), pt.getXContent(p));
             }
         }
         return products;

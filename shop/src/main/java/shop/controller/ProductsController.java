@@ -1,4 +1,4 @@
-package shop.controller.testing;
+package shop.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +15,6 @@ public class ProductsController {
     GetNProducts getNProducts;
 
     @RequestMapping("/products")
-
     public String welcome(HttpServletRequest request, ModelMap map, @RequestParam(value="n", required=false, defaultValue="10") Integer n) {
        request.getSession().setAttribute("name","sawa");
         Product p[] = getNProducts.getProducts(n);

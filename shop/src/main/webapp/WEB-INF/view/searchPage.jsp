@@ -7,13 +7,14 @@
 	<title>Demo | Welcome</title>
 	</head>
 	<body>
-	<br>
-	<a href="/products">ten products</a>
-	<br>
-	<a href="/show">show all </a>
-	<br>
-	<a href="/searchPage">text search</a>
-	<br>
-    <a href="/startComplexSearch">complex search</a>
+
+<form action="/textSearch" method="post">
+  Search text <br>
+
+  <input type="text" name="texstSearch" >
+  <br>
+
+  <input type="submit" value="search">
+</form>
 	</body>
 </html>

@@ -1,4 +1,4 @@
-package shop.controller.testing;
+package shop.controller;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.transport.TransportClient;
@@ -13,15 +13,9 @@ import shop.entity.product.Product;
 import shop.services.get.GetProducts;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-
-/**
- * Created by Oleksandr_Shainoga on 1/12/2018.
- */
 
 @Controller
 public class Slider {
-
 
     @Autowired
     GetProducts getProducts;
@@ -31,9 +25,10 @@ public class Slider {
 
     private int size = 10;
     @RequestMapping("/show")
-    @Scope("session") // ???????????
+//    @Scope("session") // ???????????
     public String welcome(HttpServletRequest request, ModelMap map, @RequestParam(value = "from", required = false, defaultValue = "0") Integer from) {
         System.out.println("qq");
+
         SearchRequestBuilder searchRequestBuilder = (SearchRequestBuilder) request.getSession().getAttribute("searchRequestBuilder");
         System.out.println(searchRequestBuilder);
         if(searchRequestBuilder==null){
@@ -43,6 +38,7 @@ public class Slider {
             request.getSession().setAttribute("searchRequestBuilder",searchRequestBuilder);
         }
         searchRequestBuilder.setSize(size).setFrom(from);
+
         Product p[] = getProducts.getProducts(searchRequestBuilder);
         map.put("products", p);
         map.put("next", from + size);
