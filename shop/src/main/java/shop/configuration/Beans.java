@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * Created by Oleksandr_Shainoga on 1/15/2018.
- */
+
 @Configuration
 public class Beans {
     @Autowired
