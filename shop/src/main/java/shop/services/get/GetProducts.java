@@ -21,6 +21,24 @@ public class GetProducts {
     @Autowired
     TransportClient client;
 
+
+    public Product[] getProducts(SearchResponse response) {
+        ArrayList<Product> products = new ArrayList<>();
+
+        int i = 0;
+        for (SearchHit hit : response.getHits().getHits()) {
+            JSONObject jsonObject = new JSONObject(hit.getSourceAsString());
+            ProductTransformer tp = new ProductTransformer();
+            Product p = tp.jsonObjToProduct(jsonObject);
+            products.add(p);
+        }
+        Product[] productArr = new Product[products.size()];
+        for (int j = 0; j < products.size(); j++) {
+            productArr[j] = products.get(j);
+        }
+        return productArr;
+    }
+
     //pererob!!1
     public Product[] getProducts(SearchRequestBuilder searchRequestBuilder) {
         ArrayList<Product> products = new ArrayList<>();

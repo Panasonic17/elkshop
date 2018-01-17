@@ -16,7 +16,7 @@ public class RangeSelect {
                         .subAggregation(AggregationBuilders.avg("test1").field("customerReviewAverage")))
                 .get();
         InternalRange agg1 = response.getAggregations().get("test");
-        System.out.println(agg1);
-        System.out.println(response.getAggregations().get("test1").toString());
+
+//        System.out.println(response.getAggregations().get("test1").toString());
     }
 }
